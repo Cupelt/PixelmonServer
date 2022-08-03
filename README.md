@@ -22,7 +22,7 @@ Thank You.<br>
 # the latest versions
 </p>
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Colda4988/PixelmonServer)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Colda4988/pixelmonServer)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Colda4988/PixelmonServer?include_prereleases)
 
 #
