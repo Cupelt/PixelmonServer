@@ -15,8 +15,11 @@ public class Prefixes {
     public String getServer() {
         return Server;
     }
-
     public String getError() {
         return Error;
+    }
+
+    public String getEvent() {
+        return Event;
     }
 }
