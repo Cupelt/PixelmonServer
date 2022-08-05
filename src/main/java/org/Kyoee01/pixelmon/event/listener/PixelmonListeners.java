@@ -1,30 +1,16 @@
 package org.Kyoee01.pixelmon.event.listener;
 
-import com.pixelmonmod.pixelmon.api.pokemon.stats.links.PokemonLink;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraft.util.text.TranslationTextComponent;
 
-import com.pixelmonmod.pixelmon.api.events.RareCandyEvent;
 import com.pixelmonmod.pixelmon.api.enums.ExperienceGainType;
 import com.pixelmonmod.pixelmon.api.events.ExperienceGainEvent;
-import com.pixelmonmod.pixelmon.api.events.battles.AttackEvent;
 
-import org.Kyoee01.pixelmon.PixelmonServerManager;
-
-import org.Kyoee01.pixelmon.prefix.Prefixes;
-import org.Kyoee01.pixelmon.translation.Translator;
+import org.Kyoee01.pixelmon.Server.Prefixes;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
-import java.io.Console;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-import java.util.logging.Logger;
 
 public class PixelmonListeners {
 
