@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/6d1c8bf4c28e697f472a83bd6add76ec4951734/mixin-0.8.5-processor.jar" />
+        </processorPath>
+        <module name="PixelmonServerManager.main" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel target="11">
+      <module name="pixelmon" target="1.8" />
+      <module name="pixelmon.main" target="8" />
+      <module name="pixelmon.test" target="8" />
+      <module name="pixelmonserver.main" target="8" />
+      <module name="pixelmonserver.test" target="8" />
+      <module name="PixelmonSideMod" target="1.8" />
+      <module name="PixelmonSideMod.main" target="8" />
+      <module name="PixelmonSideMod.test" target="8" />
       <module name="sever" target="1.8" />
       <module name="sever.main" target="8" />
       <module name="sever.test" target="8" />

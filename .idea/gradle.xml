@@ -15,11 +15,11 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/PixelmonSideMod" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/PixelmonServerManager" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../../Gradle/gradle-7.4" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/PixelmonSideMod" />
+            <option value="$PROJECT_DIR$/PixelmonServerManager" />
           </set>
         </option>
       </GradleProjectSettings>
