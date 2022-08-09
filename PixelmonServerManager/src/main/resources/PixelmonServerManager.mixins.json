@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.kyoee01.pixelmon.pixelmonservermanager.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "pixelmonservermanager.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
