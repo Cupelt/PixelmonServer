@@ -7,9 +7,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.Kyoee01.pixelmon.server.listeners.BukkitEventListener;
 import org.Kyoee01.pixelmon.server.listeners.ForgeEventListener;
+import org.Kyoee01.pixelmon.server.manager.server.BukkitManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.ChatColor;
@@ -44,10 +47,14 @@ public class PixelmonServerManager {
                         "&4                   \\/    \\/           \\/            \\/&b          \\/     \\/                 \\/       "));
     }
 
-
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) { //레시피 등 기타 활동 정의
 
+    }
+
+    @SubscribeEvent
+    public void onServerStarted(FMLServerStartedEvent event){
+        BukkitManager.registerEvent(new BukkitEventListener());
     }
 
     @SubscribeEvent
