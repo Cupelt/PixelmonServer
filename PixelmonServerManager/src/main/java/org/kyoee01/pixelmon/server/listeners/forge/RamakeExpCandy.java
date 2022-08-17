@@ -3,7 +3,9 @@ package org.Kyoee01.pixelmon.server.listeners.forge;
 import com.pixelmonmod.pixelmon.api.enums.ExperienceGainType;
 import com.pixelmonmod.pixelmon.api.events.ExperienceGainEvent;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.util.text.LanguageMap;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.bukkit.ChatColor;
 
@@ -44,12 +46,12 @@ public class RamakeExpCandy {
         if (!e.isCanceled() && player != null){
             String name;
             if (e.pokemon.getPokemon().getNickname().equals("")){
-                name = "pixelmon."+e.pokemon.getPokemon().getSpecies().getName().toLowerCase();
+                name = new TranslationTextComponent("pixelmon."+e.pokemon.getPokemon().getSpecies().getName().toLowerCase()).getUnformattedComponentText();
             } else {
                 name = e.pokemon.getPokemon().getNickname();
             }
             player.sendMessage(new StringTextComponent(ChatColor.translateAlternateColorCodes('&',
-                            prefix +"&a&l"+ name +" &f이(가) &e"+format.format(e.getExperience())+"EXP &f를 얻었습니다.")),
+                            prefix +"&a"+ name +" &f이(가) &e"+format.format(e.getExperience())+"EXP &f를 얻었습니다.")),
                     UUID.randomUUID());
         }
     }
