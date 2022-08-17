@@ -14,7 +14,7 @@ public class InOutMessage implements Listener {
     }
 
     @EventHandler
-    public void Join(PlayerQuitEvent e){
+    public void Quit(PlayerQuitEvent e){
         e.setQuitMessage(ChatColor.translateAlternateColorCodes('&',
                 "&f[&cQuit&f] &c"+e.getPlayer().getName()+" 퇴장..."));
     }
