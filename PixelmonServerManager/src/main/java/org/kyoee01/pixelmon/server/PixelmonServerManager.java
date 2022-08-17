@@ -1,6 +1,6 @@
 package org.Kyoee01.pixelmon.server;
 
-import com.pixelmonmod.pixelmon.Pixelmon;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,12 +10,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.Kyoee01.pixelmon.server.listeners.BukkitEventListener;
-import org.Kyoee01.pixelmon.server.listeners.ForgeEventListener;
-import org.Kyoee01.pixelmon.server.manager.server.BukkitManager;
+import org.Kyoee01.pixelmon.server.listeners.ListenerManager;
+import org.Kyoee01.pixelmon.server.manager.server.commands.CommandManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.plugin.Plugin;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("pixelmonservermanager")
@@ -32,7 +34,7 @@ public class PixelmonServerManager {
 
     @SubscribeEvent
     public static void init(FMLCommonSetupEvent event) { //이벤트 등록
-        Pixelmon.EVENT_BUS.register(new ForgeEventListener());
+        ListenerManager.registerForgeEvents();
     }
 
     @SubscribeEvent
@@ -54,11 +56,14 @@ public class PixelmonServerManager {
 
     @SubscribeEvent
     public void onServerStarted(FMLServerStartedEvent event){
-        BukkitManager.registerEvent(new BukkitEventListener());
+        Plugin plugin = Bukkit.getPluginManager().getPlugin("ListenEventManager");
+
+        ListenerManager.registerBukkitEvents(plugin);
+
     }
 
     @SubscribeEvent
     public void onRegisterCommands(RegisterCommandsEvent event) { // 명령어 등록
-
+        CommandManager.registerCommands(event);
     }
 }
