@@ -11,6 +11,7 @@ buildscript {
 
 plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -163,6 +164,7 @@ dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
     implementation fg.deobf('pixelmon:Pixelmon-1.16.5-9.0.6-server:9.0.6')
     implementation 'io.izzel.arclight:arclight-api:1.2.7'
+    // implementation 'net.dv8tion:JDA:5.0.0-alpha.17'
 
     compileOnly files("libs/ProtocolLib.jar")
     compileOnly files("libs/craftbukkit.jar")
@@ -183,8 +185,20 @@ jar {
         ])
     }
 }
+shadowJar {
+    group = jar.group
+    configurations = [project.configurations.shadow]
 
-jar.finalizedBy('reobfJar')
+    manifest.from jar.manifest.effectiveManifest
+
+    shadow 'net.dv8tion:JDA:5.0.0-alpha.17'
+
+    finalizedBy 'reobfShadowJar'
+}
+
+reobf {
+    shadowJar {}
+}
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation

@@ -1,6 +1,11 @@
 package org.Kyoee01.pixelmon.server;
 
 
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.utils.Compression;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,8 +21,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
 import org.bukkit.plugin.Plugin;
+import javax.security.auth.login.LoginException;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("pixelmonservermanager")
@@ -25,6 +30,7 @@ public class PixelmonServerManager {
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
+    public static JDA Jda = null;
 
     public PixelmonServerManager() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(PixelmonServerManager::init);
@@ -55,11 +61,25 @@ public class PixelmonServerManager {
     }
 
     @SubscribeEvent
-    public void onServerStarted(FMLServerStartedEvent event){
+    public void onServerStarted(FMLServerStartedEvent event) throws LoginException {
         Plugin plugin = Bukkit.getPluginManager().getPlugin("ListenEventManager");
+        String JdaToken = "MTAxMDQ0MTM3MDk5NTAxMTY1NA.GdiDbA.PPWret_gfLxqLftKcQq4i3MeoJsNZkH1IjiTHo";
 
+        //registerBukkitEvents
         ListenerManager.registerBukkitEvents(plugin);
 
+        //Setting Discord Bot
+        JDABuilder builder = JDABuilder.createDefault(JdaToken);
+        builder = ListenerManager.registerDiscordEvents(builder);
+        // Disable parts of the cache
+        builder.disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE);
+        // Enable the bulk delete event
+        builder.setBulkDeleteSplittingEnabled(false);
+        // Disable compression (not recommended)
+        builder.setCompression(Compression.NONE);
+        // Set activity (like "playing Something")
+        builder.setActivity(Activity.watching("TV"));
+        Jda = builder.build();
     }
 
     @SubscribeEvent
