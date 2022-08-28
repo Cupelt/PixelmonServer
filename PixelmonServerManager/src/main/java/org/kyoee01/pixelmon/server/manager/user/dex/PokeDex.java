@@ -60,10 +60,9 @@ public class PokeDex {
                                 "&f키 : &7"+ round.format(o.get().getDefaultForm().getDimensions().getHeight()) +"&f, 몸무게 : &7"+round.format(o.get().getDefaultForm().getWeight())));
                         Lore.add(ChatColor.translateAlternateColorCodes('&',"&f"));
                         Lore.add(ChatColor.translateAlternateColorCodes('&',"&f설명 -"));
-                        
-                        String[] Description = o.get().getDescTranslation().getUnformattedComponentText().split("\\n");
+
+                        String[] Description = o.get().getDescTranslation().getString().split("\\n");
                         for (String l : Description){
-                            System.out.println(l);
                             String[] w = ChatPaginator.wordWrap(ChatColor.translateAlternateColorCodes('&',
                                     l), 30);
                             for(String word : w){
