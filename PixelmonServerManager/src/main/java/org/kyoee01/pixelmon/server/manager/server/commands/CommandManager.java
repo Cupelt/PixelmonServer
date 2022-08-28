@@ -26,6 +26,7 @@ public class CommandManager {
                 return 1;
             }
          */
+        new PokeDexCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }
