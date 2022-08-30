@@ -1,7 +1,8 @@
 package org.Kyoee01.pixelmon.server.listeners;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
-import org.Kyoee01.pixelmon.server.listeners.forge.RamakeExpCandy;
+import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
 public class ListenerManager {
@@ -10,7 +11,6 @@ public class ListenerManager {
             Forge Event register here - evnet = Instance [Ex) Pixelmon.EVENT_BUS.register(new ExampleEvent())]
             Pixelmon.EVENT_BUS.register(event);
          */
-        Pixelmon.EVENT_BUS.register(new RamakeExpCandy());
     }
 
     public static void registerBukkitEvents(Plugin plugin){
