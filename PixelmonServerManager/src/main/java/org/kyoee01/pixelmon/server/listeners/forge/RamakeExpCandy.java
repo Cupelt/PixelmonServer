@@ -25,15 +25,15 @@ public class RamakeExpCandy {
         if (ItemType.name().contains("EXP_CANDY")){
             float ExpPer = 0;
             if (ItemType.equals(ExperienceGainType.EXTRA_SMALL_EXP_CANDY)){
-                ExpPer = 2.5f;
+                ExpPer = 0.75f;
             } else if (ItemType.equals(ExperienceGainType.SMALL_EXP_CANDY)){
-                ExpPer = 7.5f;
+                ExpPer = 1.75f;
             } else if (ItemType.equals(ExperienceGainType.MEDIUM_EXP_CANDY)){
-                ExpPer = 15.0f;
+                ExpPer = 4.5f;
             } else if (ItemType.equals(ExperienceGainType.LARGE_EXP_CANDY)){
-                ExpPer = 30.0f;
+                ExpPer = 12.5f;
             } else if (ItemType.equals(ExperienceGainType.EXTRA_LARGE_EXP_CANDY)){
-                ExpPer = 60.0f;
+                ExpPer = 30.0f;
             }
             e.setExperience(Math.round(needExp*ExpPer/100.0f+1.0f));
         }
