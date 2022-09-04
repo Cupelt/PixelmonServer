@@ -1,5 +1,11 @@
 package org.Kyoee01.pixelmon.server.manager.user.dex;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.pixelmonmod.pixelmon.Pixelmon;
 import com.pixelmonmod.pixelmon.api.pokedex.PlayerPokedex;
 import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
 import com.pixelmonmod.pixelmon.api.pokemon.PokemonFactory;
@@ -8,7 +14,9 @@ import com.pixelmonmod.pixelmon.api.pokemon.species.Species;
 import com.pixelmonmod.pixelmon.api.registries.PixelmonSpecies;
 import com.pixelmonmod.pixelmon.api.storage.StorageProxy;
 import com.pixelmonmod.pixelmon.api.util.helpers.SpriteItemHelper;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.util.JSONUtils;
+import net.minecraft.util.text.*;
+import org.Kyoee01.pixelmon.server.PixelmonServerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -18,12 +26,15 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.ChatPaginator;
-import sun.security.krb5.internal.crypto.Des;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.regex.Pattern;
 
 public class PokeDex {
     public static int page = 0;
@@ -61,15 +72,16 @@ public class PokeDex {
                         Lore.add(ChatColor.translateAlternateColorCodes('&',"&f"));
                         Lore.add(ChatColor.translateAlternateColorCodes('&',"&f설명 -"));
 
-                        String[] Description = o.get().getDescTranslation().getString().split("\\n");
+                        String[] Description = o.get().getDescTranslation().getString().split("//n");
+
                         for (String l : Description){
                             String[] w = ChatPaginator.wordWrap(ChatColor.translateAlternateColorCodes('&',
                                     l), 30);
                             for(String word : w){
                                 if(word.equals(w[0]))
-                                    word += ChatColor.WHITE +" • ";
+                                    word = ChatColor.WHITE +" • " + word;
                                 else
-                                    word += ChatColor.WHITE+"    ";
+                                    word = ChatColor.WHITE+"   " + word;
                                 Lore.add(word);
                             }
                             Lore.add(ChatColor.translateAlternateColorCodes('&',"&f"));
