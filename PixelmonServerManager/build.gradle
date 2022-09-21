@@ -15,6 +15,7 @@ plugins {
 }
 
 apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group = 'org.Kyoee01.pixelmon'
 version = '0.1.0-Alpha'
@@ -139,6 +140,7 @@ repositories {
     }
 
     maven { url 'https://maven.izzel.io/releases' }
+    mavenCentral()
 }
 
 dependencies {
