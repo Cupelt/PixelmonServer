@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.kyoee01.pixelmon.visual.pixelmonvisualupgrader.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "pixelmonvisualupgrader.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
