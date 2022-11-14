@@ -1,4 +1,4 @@
-package org.Kyoee01.pixelmon.server.listeners;
+package org.kyoee01.pixelmon.server.listeners;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
 import org.bukkit.Bukkit;
@@ -9,7 +9,7 @@ public class ListenerManager {
     public static void registerForgeEvents(){
         /*
             Forge Event register here - evnet = Instance [Ex) Pixelmon.EVENT_BUS.register(new ExampleEvent())]
-            Pixelmon.EVENT_BUS.register(event);
+            Pixelmon.EVENT_BUS.register(event);a
          */
     }
 

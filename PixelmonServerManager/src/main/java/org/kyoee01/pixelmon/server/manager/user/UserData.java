@@ -1,4 +1,4 @@
-package org.Kyoee01.pixelmon.server.manager.user;
+package org.kyoee01.pixelmon.server.manager.user;
 
 
 import org.bukkit.configuration.file.YamlConfiguration;

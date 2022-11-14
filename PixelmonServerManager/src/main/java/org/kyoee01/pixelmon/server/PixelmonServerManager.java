@@ -1,4 +1,4 @@
-package org.Kyoee01.pixelmon.server;
+package org.kyoee01.pixelmon.server;
 
 
 import net.minecraftforge.common.MinecraftForge;
@@ -10,13 +10,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.Kyoee01.pixelmon.server.listeners.ListenerManager;
-import org.Kyoee01.pixelmon.server.manager.server.commands.CommandManager;
+import org.kyoee01.pixelmon.server.listeners.ListenerManager;
+import org.kyoee01.pixelmon.server.manager.server.commands.CommandManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
 import org.bukkit.plugin.Plugin;
 
 // The value here should match an entry in the META-INF/mods.toml file

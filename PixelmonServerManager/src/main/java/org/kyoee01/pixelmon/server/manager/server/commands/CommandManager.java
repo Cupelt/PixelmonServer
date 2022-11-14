@@ -1,4 +1,4 @@
-package org.Kyoee01.pixelmon.server.manager.server.commands;
+package org.kyoee01.pixelmon.server.manager.server.commands;
 
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.server.command.ConfigCommand;
